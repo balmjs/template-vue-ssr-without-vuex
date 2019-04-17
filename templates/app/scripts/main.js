@@ -1,9 +1,8 @@
 import Vue from 'vue';
-import App from './App';
-import { createRouter } from './router';
-import EventBus from './event';
-
-const isProd = process.env.NODE_ENV === 'production';
+import App from '@/views/layouts/app';
+import { createRouter } from '@/routes';
+import EventBus from '@/event';
+import { isProd } from '@/config';
 
 Vue.config.productionTip = false;
 Vue.config.devtools = true;

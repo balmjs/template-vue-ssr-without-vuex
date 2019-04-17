@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import List from './list.vue';
+import List from '@/views/components/list';
 
 export default {
   name: 'App',

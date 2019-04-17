@@ -21,6 +21,7 @@ npm i
 ```sh
 # For development
 npm run dev
+node server.js # run dev server for test api
 
 # For production
 npm run prod
