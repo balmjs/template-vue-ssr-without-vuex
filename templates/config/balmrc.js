@@ -14,8 +14,7 @@ module.exports = {
     }
   },
   styles: {
-    ext: 'scss',
-    autoprefixer: ['> 1%', 'last 2 versions', 'not ie <= 8']
+    ext: 'scss'
   }
   // More Config
 };

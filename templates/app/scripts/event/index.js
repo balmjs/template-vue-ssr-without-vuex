@@ -4,6 +4,7 @@ function fetch(url, Data, method = 'GET') {
   const data = method === 'POST' ? Data : {};
   const params = method === 'GET' ? Data : {};
   return new Promise((resolve, reject) => {
+    console.log(url);
     axios({
       url: url,
       data,
@@ -36,14 +37,12 @@ export default {
       },
       methods: {
         getList() {
-          console.log('get list');
           return fetch('http://localhost:8088/api/getlist').then(res => {
             this.list = res;
             return res;
           });
         },
         getNav() {
-          console.log('get nav');
           return fetch('http://localhost:8088/api/getnav').then(res => {
             this.nav = res;
             return res;

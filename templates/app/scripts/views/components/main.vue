@@ -22,8 +22,10 @@ export default {
   },
   beforeMount() {
     if (this.$events.list.length) {
+      console.log('fetch data by cache');
       this.list = this.$events.list;
     } else {
+      console.log('fetch data by client');
       this.$events.getList().then(res => {
         this.list = res;
       });

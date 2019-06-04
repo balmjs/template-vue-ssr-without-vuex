@@ -13,11 +13,15 @@ export default {
   components: {
     'v-header': Header
   },
+  // NOTE: for SPA
   // mounted() {
-  //   this.$events.getNav(); // NOTE: for SPA
+  //   console.log('fetch data by client');
+  //   this.$events.getNav();
   // },
+  // NOTE: for SSR
   asyncData({ eventBus }) {
-    return eventBus.getNav(); // NOTE: for SSR
+    console.log('fetch data by server');
+    return eventBus.getNav();
   }
 };
 </script>
