@@ -1,8 +1,7 @@
 {
   "name": "my-vue-ssr-project",
   "version": "1.0.0",
-  "description": "A Vue.js project with router",
-  "private": true,
+  "description": "A server-rendered Vue project without Vuex",
   "scripts": {
     "dev": "gulp -f config/client.js",
     "build:client": "gulp -p -f config/client.js",
@@ -30,10 +29,10 @@
     "@babel/plugin-proposal-throw-expressions": "^7.0.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-syntax-import-meta": "^7.0.0",
-    "babel-eslint": "^10.0.0",
-    "balm": "^1.5.1",
-    "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.2.2",
+    "babel-eslint": "^10.0.2",
+    "balm": "^1.5.7",
+    "eslint": "^6.0.1",
+    "eslint-plugin-vue": "^5.2.3",
     "gulp": "^4.0.2",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
@@ -41,5 +40,6 @@
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.10",
     "webpack-node-externals": "^1.7.2"
-  }
+  },
+  "private": true
 }
