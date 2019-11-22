@@ -5,10 +5,12 @@ const base = require('./base');
 let balmConfig = require('./balmrc');
 
 balmConfig.server = {
-  proxyContext: '/api',
-  proxyOptions: {
-    target: 'http://localhost:8088',
-    changeOrigin: true
+  proxyConfig: {
+    context: '/api',
+    options: {
+      target: 'http://localhost:8088', // Target host
+      changeOrigin: true // Needed for virtual hosted sites
+    }
   },
   historyOptions: {
     index: '/server.html' // NOTE: entry template
@@ -22,7 +24,7 @@ balmConfig.scripts = Object.assign(base, {
   }
 });
 
-if (balm.config.isProd) {
+if (balm.config.env.isProd) {
   // This plugins generates `vue-ssr-client-manifest.json` in the
   // output directory.
   balmConfig.scripts.plugins = balmConfig.scripts.plugins.concat([
@@ -31,9 +33,14 @@ if (balm.config.isProd) {
     }),
     new VueSSRClientPlugin()
   ]);
+  balmConfig.scripts.inject = true;
 }
 
 balm.config = balmConfig;
-balm.config.html.options.removeComments = false;
+
+if (balm.config.env.isProd) {
+  balm.config.html.options.removeComments = false;
+  balm.config.assets.cache = true;
+}
 
 balm.go();

@@ -17,5 +17,11 @@ module.exports = {
     vue$: 'vue/dist/vue.esm.js',
     '@': path.resolve(__dirname, '..', 'app', 'scripts')
   },
-  plugins: [new VueLoaderPlugin()]
+  plugins: [new VueLoaderPlugin()],
+  lint: false,
+  options: {
+    compress: {
+      drop_console: false
+    }
+  }
 };
