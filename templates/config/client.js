@@ -2,26 +2,29 @@ const balm = require('balm');
 const webpack = require('webpack');
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
 const base = require('./base');
-let balmConfig = require('./balmrc');
+const balmrc = require('./balmrc');
 
-balmConfig.server = {
-  proxyConfig: {
-    context: '/api',
-    options: {
-      target: 'http://localhost:8088', // Target host
-      changeOrigin: true // Needed for virtual hosted sites
-    }
-  },
-  historyOptions: {
-    index: '/server.html' // NOTE: entry template
-  }
-};
-
-balmConfig.scripts = Object.assign(base, {
+const scripts = Object.assign(base, {
   entry: {
-    lib: ['vue', 'vue-router', 'axios'],
+    lib: ['vue', 'vue-router', 'vuex'],
     client: './app/scripts/entry-client.js'
   }
+});
+
+const balmConfig = Object.assign(balmrc, {
+  server: {
+    proxyConfig: {
+      context: '/api',
+      options: {
+        target: 'http://localhost:8088',
+        changeOrigin: true
+      }
+    },
+    historyOptions: {
+      index: '/server.html' // NOTE: entry template
+    }
+  },
+  scripts
 });
 
 if (balm.config.env.isProd) {
@@ -43,4 +46,8 @@ if (balm.config.env.isProd) {
   balm.config.assets.cache = true;
 }
 
-balm.go();
+balm.go(mix => {
+  if (mix.env.isProd) {
+    mix.remove('dist/server.html');
+  }
+});

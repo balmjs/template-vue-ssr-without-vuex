@@ -3,9 +3,9 @@ const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
 const base = require('./base');
-let balmConfig = require('./balmrc');
+const balmrc = require('./balmrc');
 
-balmConfig.scripts = Object.assign(base, {
+const scripts = Object.assign(base, {
   entry: {
     server: './app/scripts/entry-server.js'
   },
@@ -22,6 +22,11 @@ balmConfig.scripts = Object.assign(base, {
     whitelist: /\.css$/
   })
 });
+
+const balmConfig = Object.assign(balmrc, {
+  scripts
+});
+
 // This is the plugin that turns the entire output of the server build
 // into a single JSON file. The default file name will be
 // `vue-ssr-server-bundle.json`

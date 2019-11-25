@@ -4,9 +4,9 @@
   "description": "{{ description }}",
   "author": "{{ author }}",
   "scripts": {
-    "dev": "gulp -f config/client.js",
-    "build:client": "gulp -p -f config/client.js",
-    "build:server": "gulp -p -ssr -f config/server.js",
+    "dev": "gulp --cwd . -f config/client.js",
+    "build:client": "gulp -p --cwd . -f config/client.js",
+    "build:server": "gulp -p -ssr --cwd . -f config/server.js",
     "prod": "npm run build:client && npm run build:server",
     "start": "cross-env NODE_ENV=production node server"
   },

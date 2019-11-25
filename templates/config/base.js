@@ -13,6 +13,9 @@ module.exports = {
       loader: ['vue-style-loader', 'css-loader', 'less-loader']
     }
   ],
+  disableDefaultLoaders: {
+    css: true
+  },
   alias: {
     vue$: 'vue/dist/vue.esm.js',
     '@': path.resolve(__dirname, '..', 'app', 'scripts')
