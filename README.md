@@ -1,4 +1,4 @@
-# BalmJS template - vue-ssr-without-vuex
+# BalmJS template - `vue-ssr-without-vuex`
 
 > A server-rendered Vue project without Vuex
 
@@ -30,4 +30,4 @@ npm run prod
 npm run start
 ```
 
-> thx [BalmJS](https://balmjs.com/)
+- thx [BalmJS](https://balmjs.com/)
