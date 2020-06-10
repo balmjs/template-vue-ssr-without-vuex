@@ -3,21 +3,22 @@
     <div class="list-item-top">
       <div class="list-item-info">
         <div class="info-top">
-          <span class="info-class">{{item.class}}</span>
-          <span class="info-time">{{item.time}}</span>
+          <span class="info-class">{{ item.class }}</span>
+          <span class="info-time">{{ item.time }}</span>
         </div>
-        <span class="info-title">{{item.title}}</span>
+        <span class="info-title">{{ item.title }}</span>
       </div>
       <div class="list-item-img">
-        <img :src="item.img">
+        <img :src="item.img" />
       </div>
     </div>
-    <div class="list-item-content">{{item.content}}</div>
+    <div class="list-item-content">{{ item.content }}</div>
   </div>
 </template>
 
 <script>
 export default {
+  name: 'MyList',
   props: {
     item: {
       type: Object,

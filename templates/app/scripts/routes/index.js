@@ -8,6 +8,7 @@ Vue.use(Router);
 export function createRouter() {
   return new Router({
     mode: 'history',
+    // base: '/app/', // NOTE: for server
     routes: [
       {
         path: '/home',

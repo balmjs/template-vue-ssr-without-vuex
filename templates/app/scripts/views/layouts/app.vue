@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <v-header></v-header>
+    <my-header></my-header>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Header from '@/views/components/header';
+import MyHeader from '@/views/components/header';
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
-    'v-header': Header
+    MyHeader
   },
   // NOTE: for SPA
   // mounted() {

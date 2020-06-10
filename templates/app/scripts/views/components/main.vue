@@ -1,19 +1,19 @@
 <template>
   <div class="main">
     <div v-if="list.length" class="main-wrapper">
-      <v-list v-for="item in list" :key="item.id" :item="item"></v-list>
+      <my-list v-for="item in list" :key="item.id" :item="item"></my-list>
     </div>
     <p v-else>No Body</p>
   </div>
 </template>
 
 <script>
-import List from '@/views/components/list';
+import MyList from '@/views/components/list';
 
 export default {
   name: 'App',
   components: {
-    'v-list': List
+    MyList
   },
   data() {
     return {

@@ -8,7 +8,9 @@
       <li class="header-list-item">Webpack</li>
       <li class="header-list-item">Express</li>
       <li class="header-list-item">Less</li>-->
-      <li class="header-list-item" v-for="item in nav" :key="item">{{item}}</li>
+      <li class="header-list-item" v-for="item in nav" :key="item">
+        {{ item }}
+      </li>
     </ul>
     <p v-else>No Header</p>
   </header>
@@ -16,6 +18,7 @@
 
 <script>
 export default {
+  name: 'MyHeader',
   computed: {
     nav() {
       return this.$events.nav || [];
