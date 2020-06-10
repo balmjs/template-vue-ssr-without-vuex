@@ -11,7 +11,6 @@
 import MyList from '@/views/components/list';
 
 export default {
-  name: 'App',
   components: {
     MyList
   },
