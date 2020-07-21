@@ -1,11 +1,11 @@
 <template>
-  <div class="main">
+  <div class="page page--test">
     <div class="main-wrapper">Page Two</div>
   </div>
 </template>
 
 <style lang="less">
-.main {
+.page {
   max-width: 960px;
   margin: 0 auto;
   overflow: hidden;

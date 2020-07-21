@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Main from '@/views/components/main';
-import Test from '@/views/components/test';
+import Home from '@/views/pages/home';
+import Test from '@/views/pages/test';
 
 Vue.use(Router);
 
@@ -12,8 +12,8 @@ export function createRouter() {
     routes: [
       {
         path: '/home',
-        name: 'main',
-        component: Main,
+        name: 'home',
+        component: Home,
         alias: '/'
       },
       {

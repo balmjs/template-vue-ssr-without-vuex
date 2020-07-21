@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="page page--home">
     <div v-if="list.length" class="main-wrapper">
       <my-list v-for="item in list" :key="item.id" :item="item"></my-list>
     </div>
@@ -34,7 +34,7 @@ export default {
 </script>
 
 <style lang="less">
-.main {
+.page {
   max-width: 960px;
   margin: 0 auto;
   overflow: hidden;
