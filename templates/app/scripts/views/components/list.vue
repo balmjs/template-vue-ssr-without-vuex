@@ -1,5 +1,5 @@
 <template>
-  <div class="main-list-item">
+  <div class="list-item">
     <div class="list-item-top">
       <div class="list-item-info">
         <div class="info-top">
@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style lang="less">
-.main-list-item {
+.list-item {
   font-size: 14px;
   display: flex;
   flex-direction: column;
