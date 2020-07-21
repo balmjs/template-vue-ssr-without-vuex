@@ -2,7 +2,9 @@ const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
-  cssLoader: false,
+  defaultLoaders: {
+    css: false
+  },
   loaders: [
     {
       test: /\.vue$/,
@@ -13,15 +15,11 @@ module.exports = {
       loader: ['vue-style-loader', 'css-loader', 'less-loader']
     }
   ],
-  disableDefaultLoaders: {
-    css: true
-  },
   alias: {
     vue$: 'vue/dist/vue.esm.js',
     '@': path.resolve(__dirname, '..', 'app', 'scripts')
   },
   plugins: [new VueLoaderPlugin()],
-  lint: false,
   options: {
     compress: {
       drop_console: false
