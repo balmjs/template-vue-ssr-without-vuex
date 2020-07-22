@@ -5,8 +5,9 @@ import EventBus from '@/event';
 import { isDev } from '@/config';
 
 Vue.config.productionTip = false;
-Vue.config.devtools = true;
+
 Vue.use(EventBus);
+
 /* eslint-disable */
 export function createApp() {
   // 创建 router 实例
