@@ -1,4 +1,3 @@
-const balm = require('balm');
 const webpack = require('webpack');
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
 const base = require('./base');
@@ -11,43 +10,51 @@ const scripts = Object.assign(base, {
   }
 });
 
-const balmConfig = Object.assign(balmrc, {
-  server: {
-    proxyConfig: {
-      context: '/api',
-      options: {
-        target: 'http://localhost:8088',
-        changeOrigin: true
+const getConfig = balm => {
+  const balmConfig = Object.assign(balmrc, {
+    server: {
+      proxyConfig: {
+        context: '/api',
+        options: {
+          target: 'http://localhost:8088',
+          changeOrigin: true
+        }
+      },
+      historyOptions: {
+        index: '/server.html' // NOTE: entry template
       }
     },
-    historyOptions: {
-      index: '/server.html' // NOTE: entry template
+    scripts,
+    assets: {
+      cache: true
     }
-  },
-  scripts
-});
+  });
 
-if (balm.config.env.isProd) {
-  // This plugins generates `vue-ssr-client-manifest.json` in the
-  // output directory.
-  balmConfig.scripts.plugins = balmConfig.scripts.plugins.concat([
-    new webpack.DefinePlugin({
-      'process.env.VUE_ENV': '"client"'
-    }),
-    new VueSSRClientPlugin()
-  ]);
-  balmConfig.scripts.inject = true;
-}
+  if (balm.config.env.isProd) {
+    balm.config.html.options.removeComments = false;
+    // This plugins generates `vue-ssr-client-manifest.json` in the
+    // output directory.
+    balmConfig.scripts.plugins = balmConfig.scripts.plugins.concat([
+      new webpack.DefinePlugin({
+        'process.env.VUE_ENV': '"client"'
+      }),
+      new VueSSRClientPlugin()
+    ]);
+    balmConfig.scripts.inject = true;
+  }
 
-balm.config = balmConfig;
+  return balmConfig;
+};
 
-if (balm.config.env.isProd) {
-  balm.config.html.options.removeComments = false;
-  balm.config.assets.cache = true;
-}
-
-balm.go(mix => {
+const api = mix => {
   if (mix.env.isProd) {
     mix.remove('dist/server.html');
   }
-});
+};
+
+module.exports = balm => {
+  return {
+    config: getConfig(balm),
+    api
+  };
+};

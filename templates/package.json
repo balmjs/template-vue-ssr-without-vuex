@@ -4,9 +4,9 @@
   "description": "{{ description }}",
   "author": "{{ author }}",
   "scripts": {
-    "dev": "gulp --cwd . -f config/client.js",
-    "build:client": "gulp -p --cwd . -f config/client.js",
-    "build:server": "gulp -p -ssr --cwd . -f config/server.js",
+    "dev": "balm --config config/client.js",
+    "build:client": "balm -p --config config/client.js",
+    "build:server": "balm -p -ssr --config config/server.js",
     "prod": "npm run build:client && npm run build:server",
     "start": "cross-env NODE_ENV=production node server"
   },
@@ -21,16 +21,16 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "balm": "^2.22.0",
-    "eslint": "^7.5.0",
+    "balm": "^3.0.0-beta.12",
+    "css-loader": "^4.2.0",
+    "eslint": "^7.6.0",
     "eslint-plugin-vue": "^6.2.2",
-    "gulp": "^4.0.2",
     "less": "^3.12.2",
     "less-loader": "^6.2.0",
     "vue-loader": "^15.9.3",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.11",
-    "webpack": "^4.43.0",
+    "webpack": "^4.44.0",
     "webpack-node-externals": "^2.5.0"
   },
   "private": true

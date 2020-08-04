@@ -1,4 +1,3 @@
-const balm = require('balm');
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
@@ -37,6 +36,4 @@ balmConfig.scripts.plugins = balmConfig.scripts.plugins.concat([
   new VueSSRServerPlugin()
 ]);
 
-balm.config = balmConfig;
-
-balm.go();
+module.exports = balmConfig;
