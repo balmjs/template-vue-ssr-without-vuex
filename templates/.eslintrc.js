@@ -9,6 +9,7 @@ module.exports = {
     sourceType: 'module'
   },
   env: {
+    node: true,
     browser: true,
     node: true
   },
