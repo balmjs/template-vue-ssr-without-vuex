@@ -11,26 +11,26 @@
     "start": "cross-env NODE_ENV=production node server"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "cors": "^2.8.5",
-    "cross-env": "^7.0.2",
+    "cross-env": "^7.0.3",
     "express": "^4.17.1",
-    "vue": "^2.6.11",
-    "vue-router": "^3.4.2",
-    "vue-server-renderer": "^2.6.11"
+    "vue": "^2.6.0",
+    "vue-router": "^3.4.0",
+    "vue-server-renderer": "^2.6.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "balm": "^3.0.0",
-    "css-loader": "^4.2.0",
+    "balm": "^3.9.0",
+    "css-loader": "^5.0.0",
     "eslint": "^7.6.0",
     "eslint-plugin-vue": "^6.2.2",
-    "less": "^3.12.2",
-    "less-loader": "^6.2.0",
-    "vue-loader": "^15.9.3",
-    "vue-style-loader": "^4.1.2",
-    "vue-template-compiler": "^2.6.11",
-    "webpack": "^4.44.0",
+    "less": "^4.0.0",
+    "less-loader": "^7.2.0",
+    "vue-loader": "^15.9.0",
+    "vue-style-loader": "^4.1.0",
+    "vue-template-compiler": "^2.6.0",
+    "webpack": "4",
     "webpack-node-externals": "^2.5.0"
   },
   "private": true
